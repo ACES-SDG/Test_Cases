@@ -28,7 +28,7 @@ var={}
 for index,item in enumerate(choices):
     var[index] = tk.StringVar()
 
-    radio_button = tk.Radiobutton(root,variable=var[index],text=item,value=index+1,command= lambda : sel(var))
+    radio_button = tk.Radiobutton(root,variable=var[index],text=item,value=index+1,command= lambda : sel(var[index]))
     radio_button.pack(side=tk.TOP,fill='x')
 tk.mainloop()
 

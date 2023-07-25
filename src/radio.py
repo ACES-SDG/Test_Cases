@@ -31,32 +31,32 @@
 
 
 
-# from tkinter import *
-# from tkinter import filedialog
+from tkinter import *
+from tkinter import filedialog
 # from tkinter.ttk import * 
-# import tkinter.messagebox
+import tkinter.messagebox
 
-# root = Tk()
+root = Tk()
 
-# tkinter.Label(root, text="Choose:").grid(row=1, column=1, sticky=W)
+tkinter.Label(root, text="Choose:").grid(row=1, column=1, sticky=W)
 
-# entry = tkinter.Entry(root, width="10")
-# entry.insert(10, 'Text') 
-# entry.grid(row=5, column=4, sticky=W)
-# entry.configure(state='disabled')
+entry = tkinter.Entry(root, width="10")
+entry.insert(10, 'Text') 
+entry.grid(row=5, column=4, sticky=W)
+entry.configure(state='disabled')
 
-# var3 = IntVar(value=1)
+var3 = IntVar(value=1)
 
-# def naccheck():
-#     if var3.get() == 2:
-#         entry.configure(state='normal')
-#     else:
-#         entry.configure(state='disable')
+def naccheck():
+    if var3.get() == 2:
+        entry.configure(state='normal')
+    else:
+        entry.configure(state='disable')
 
-# # You need to pass the same command function to both the Radiobutton widgets
-# Radiobutton(root, text="Option 1", variable=var3, value=1, command=naccheck).grid(row=1, column=2, sticky=W)
-# Radiobutton(root, text="Option 2", variable=var3, value=2, command=naccheck).grid(row=5, column=2, sticky=E)
+# You need to pass the same command function to both the Radiobutton widgets
+Radiobutton(root, text="Option 1", variable=var3, value=1, command=naccheck).grid(row=1, column=2, sticky=W)
+Radiobutton(root, text="Option 2", variable=var3, value=2, command=naccheck).grid(row=5, column=2, sticky=E)
 
-# root.mainloop()
+root.mainloop()
 
 

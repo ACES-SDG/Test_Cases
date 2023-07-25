@@ -1,5 +1,6 @@
 import tkinter as tk
-
+import customtkinter as ctk
+import tkinter.font as font
 
 class RoundedButton(tk.Canvas):
 
@@ -12,7 +13,7 @@ class RoundedButton(tk.Canvas):
         self.radius = radius        
         
         self.rect = self.round_rectangle(0, 0, 0, 0, tags="button", radius=radius, fill=btnbackground)
-        self.text = self.create_text(0, 0, text=text, tags="button", fill=btnforeground, font=("Times", 30), justify="center")
+        self.text = self.create_text(0, 0, text=text, tags="button", fill=btnforeground, font=("Times", 15), justify="center")
 
         self.tag_bind("button", "<ButtonPress>", self.border)
         self.tag_bind("button", "<ButtonRelease>", self.border)
@@ -93,6 +94,26 @@ def func():
     print("Button pressed")
 
 root = tk.Tk()
-btn = RoundedButton(text="This is a \n rounded button", radius=100, btnbackground="white", btnforeground="black", clicked=func)
-btn.pack(expand=True, fill="both")
+# left_container = ctk.CTkFrame(
+#       root,
+#         fg_color='black',
+#         width=root.winfo_screenwidth(),
+#         # border=0,
+#         # borderwidth=0,
+
+#     )
+    # left_container.pack_propagate(0)
+# left_container.pack(
+#     side='left',
+#     fill='both',
+#     # anchor='nw',
+#     expand = True,
+#     padx=20,
+#     pady=10,
+
+# )
+# myFont = font.Font(size=5)
+btn = RoundedButton(master= root ,text="Submit", radius=100, btnbackground="white", btnforeground="black", clicked=func,width = 35,height = 15)
+btn.pack( )
+# btn['font'] = myFont
 root.mainloop()

@@ -1,3 +1,4 @@
+
 # creating a new dictionary
 my_dict ={"Java":100, "Python":112, "C":11}
 
