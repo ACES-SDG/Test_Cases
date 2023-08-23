@@ -73,7 +73,7 @@ def logintodb(user, passw):
 		print(sql_query.head())
 		# dbs = cursor.fetchall()
 		# print(dbs)
-		# for index,db_name in enumerate(dbs):
+		# for db_name in dbs:
 		# 	print(db_name[0].decode('utf-8'))
    			
 		db_name_list.add_items(item_list=sql_query.columns)
