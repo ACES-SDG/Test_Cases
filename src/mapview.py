@@ -17,7 +17,8 @@ map_widget = tkintermapview.TkinterMapView(my_label, width=800, height=600, corn
 map_widget.set_address("10 West Elm St., Chicago, IL, United States")
 
 
-map_widget.
+
+# map_widget.
 # map_widget.
 # Set A Zoom Level
 map_widget.set_zoom(20)

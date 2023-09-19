@@ -7,7 +7,7 @@ root.option_add("*TCombobox*Listbox*Foreground", "#8b9ebf")
 root.option_add("*TCombobox*Listbox*Font", "Courier")
 
 style = ttk.Style()
-style.theme_use("clam")
+style.theme_use("yaru")
 style.configure('TCombobox',
                          background="#1d2128",
                          fieldbackground="#1d2128",
