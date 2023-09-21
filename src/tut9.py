@@ -40,6 +40,8 @@ def on_drag_release(event):
 
     x, y = event.widget.winfo_pointerxy()
     for drop_target in [row_area, column_area]:
+        
+        
         target_x, target_y, target_width, target_height = drop_target.winfo_rootx(), drop_target.winfo_rooty(), drop_target.winfo_width(), drop_target.winfo_height()
         if target_x < x < target_x + target_width and target_y < y < target_y + target_height:
             drop_target.config(text=DRAGGED_ITEM)
