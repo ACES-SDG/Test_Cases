@@ -13,9 +13,7 @@ root.geometry('200x150')
 # the save button, a filedialog will
 # open and ask to save file
 def save():
-	files = [('All Files', '*.*'),
-			('Python Files', '*.py'),
-			('Text Document', '*.txt')]
+	files = [('ACES Analytics tool', '*.owbx')]
 	file = asksaveasfile(filetypes = files, defaultextension = files,)
 
 btn = ttk.Button(root, text = 'Save', command = lambda : save())

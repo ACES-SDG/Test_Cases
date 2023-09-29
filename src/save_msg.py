@@ -16,6 +16,7 @@ def resource_path(relative_path):
 
     return os.path.join(base_path, relative_path)
 def show_custom_dialog():
+    global selected_button
     custom_dialog = tk.Toplevel(root)
     custom_dialog.title("ACES Analytics tool")   
     
@@ -54,12 +55,19 @@ def show_custom_dialog():
 
     button_frame.pack(side="top")
 
-    save_button = ctk.CTkButton(button_frame, text="Save", 
-                                command=save_changes,width=100, fg_color='#213966')
+    save_button = ctk.CTkButton(button_frame, text="Save",width=100,
+                                fg_color='#213966',text_color='white',
+                                hover_color='#7696D0',command=lambda : save_changes(save_button))
+    selected_button = save_button
     dont_save_button = ctk.CTkButton(button_frame, text="Don't Save", 
-                                     command=dont_save_changes,width=100,fg_color='#213966')
-    cancel_button = ctk.CTkButton(button_frame, text="Cancel",
-                                  command=custom_dialog.destroy,width=100,fg_color='#213966')
+                                     command=lambda : dont_save_changes(dont_save_button),
+                                     width=100,fg_color='white',text_color='black',
+                                hover_color='#7696D0',)
+    cancel_button = ctk.CTkButton(button_frame, text="Cancel",width=100,
+                                  fg_color='white',text_color='black',
+                                hover_color='#7696D0',  
+                                command=lambda : close(custom_dialog,cancel_button),
+                                )
 
     # save_button.grid(row=0, column=0, padx=(20,5))
     cancel_button.pack(side="right",padx=(0,15))
@@ -70,12 +78,34 @@ def show_custom_dialog():
     # cancel_button.grid(row=0, column=2, padx=(0,5))
     save_button.pack(side="right",padx=(0,15))
     
+def toggle_button(button):
+    global selected_button
+    if selected_button:
+        # Deselect previous button, change back to white
+        selected_button.configure(fg_color='white',text_color='black',)
 
-def save_changes():
+    if selected_button is not button:  # If clicking a different button
+        # Select current button, change to red
+        button.configure(fg_color='#213966',text_color='white',)
+
+        selected_button = button
+
+    else:
+        selected_button = None  # Deselect current button
+def save_changes(btn):
+    toggle_button(btn)
+    
     print("Saving changes...")
 
-def dont_save_changes():
+def dont_save_changes(btn):
+    toggle_button(btn)
+    
     print("Discarding changes...")
+    
+def close(window, btn):
+    toggle_button(btn)
+    
+    window.destroy()
 
 root = tk.Tk()
 root.title("Custom Message Box")
